@@ -6,6 +6,14 @@ function crearGato(nombre, edad) {
   // Agrega un método (funcion) llamado "meow" que devuelva el string "Meow!"
   // Devuelve el objeto
   // Tu código:
+  var objeto = {
+    nombre: nombre,
+    edad: edad,
+    meow: function(){
+      return 'Meow!'
+    }
+  }
+  return objeto;
 }
 
 
@@ -23,6 +31,7 @@ function invocarMetodo(objeto, metodo) {
   // Invoca ese método
   // Nada necesita ser devuelto ("returned")
   // Tu código:
+  objeto[metodo]();
 }
 
 function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
@@ -87,6 +96,8 @@ function actualizarPassword(usuario, nuevaPassword) {
   // Reemplaza la contraseña existente en el objeto "usuario" con el valor de "nuevagPassword"
   // Devuelve el objeto
   // Tu código:
+  usuario.password = nuevaPassword
+  return usuario
 }
 
 function agregarAmigo(usuario, nuevoAmigo) {
@@ -118,6 +129,14 @@ function sumarLikesDeUsuario(usuario) {
   // Suma todos los likes de todos los objetos "post"
   // Devuelve la suma
   // Tu código:
+  var suma = 0;
+
+  for(var i = 0; i < usuario.posts.length; i++) {
+    suma = suma + usuario.posts[i].likes;
+  }
+
+  return suma;
+  
 }
 
 function agregarMetodoCalculoDescuento(producto) {
@@ -131,7 +150,7 @@ function agregarMetodoCalculoDescuento(producto) {
   // producto.calcularPrecioDescuento() -> 20 - (20 * 0.2)
   // Tu código:
 producto.calcularPrecioDescuento = function () {
-  return this.precio - this.precio * this.porcentajeDescuento;
+  return this.precio - this.precio * this.porcentajeDeDescuento;
 };
 return producto;
 

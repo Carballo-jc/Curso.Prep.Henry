@@ -63,23 +63,23 @@ function asAmirror(str) {
   //   return str.split('').reverse().join('')
   // }
   // return str
-  var acumuladorDePalabra = '';
-  var fraseFinalRetornada = '';
+  var palabra = "";
+  var frase = "";
   function invertirPalabra(txt){
     return txt.split('').reverse().join('')
   }
-  for(var a in str){
-    if(str[a] === ''){
-      fraseFinalRetornada += invertirPalabra(acumuladorDePalabra) + '';
-      acumuladorDePalabra = '';
-    }else{
-      acumuladorDePalabra += str[a];
-      if(parseInt(a,10) === str.length -1){
-        fraseFinalRetornada += invertirPalabra(acumuladorDePalabra)
+  for (let a in str) {
+    if (str[a] === " ") {
+      frase += invertirPalabra(palabra) + " ";
+      palabra = "";
+    } else {
+      palabra += str[a];
+      if (parseInt(a, 10) === str.length - 1) {
+        frase += invertirPalabra(palabra);
       }
     }
   } 
-  return fraseFinalRetornada
+  return frase;
   
 }
 
