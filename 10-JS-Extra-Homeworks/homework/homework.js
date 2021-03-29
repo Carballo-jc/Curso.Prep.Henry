@@ -59,28 +59,10 @@ function asAmirror(str) {
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
 
-  // for(var i = 0; i < str.length; i++){
-  //   return str.split('').reverse().join('')
-  // }
-  // return str
-  var palabra = "";
-  var frase = "";
-  function invertirPalabra(txt){
-    return txt.split('').reverse().join('')
-  }
-  for (let a in str) {
-    if (str[a] === " ") {
-      frase += invertirPalabra(palabra) + " ";
-      palabra = "";
-    } else {
-      palabra += str[a];
-      if (parseInt(a, 10) === str.length - 1) {
-        frase += invertirPalabra(palabra);
-      }
-    }
-  } 
-  return frase;
-  
+  var strArray = str.split(" ");
+  var strRevese = strArray.map((item) => item.split("").reverse().join(""));
+  return strRevese.join(" ");
+
 }
 
 function capicua(numero) {
