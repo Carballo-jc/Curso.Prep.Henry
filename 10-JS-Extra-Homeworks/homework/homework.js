@@ -21,35 +21,50 @@ function numberOfCharacters(string) {
 
   var objReturn = {};
   for (let a in string) {
-    if (objReturn[string[a]] === undefined) {
-      objReturn[string[a]] = 1;
-    } else {
-      objReturn[string[a]] += 1;
-    }
+    // if (objReturn[string[a]] === undefined) {
+    //   objReturn[string[a]] = 1;
+    // } else {
+    //   objReturn[string[a]] += 1;
+    // }
+    !objReturn[string[a]]
+      ? (objReturn[string[a]] = 1)
+      : (objReturn[string[a]] += 1);
   }
   return objReturn;
 }
 
-function capToFront(s) {
+function capToFront(string) {
   //Realiza una función que reciba como parámetro un string y mueva todas las letras mayúsculas
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
-
+  //diferentes formas de resolverlo
   var parteMinuscula = "";
   var parteMayuscula = "";
-  for (let a in s) {
-    if (esMayuscula(s[a])) {
-      parteMayuscula += s[a];
-    } else {
-      parteMinuscula += s[a];
-    }
-  }
-  function esMayuscula(letra) {
-    return letra === letra.toUpperCase();
-  }
+  for (var i = 0; i < string.length; i++) {
+    string[i].toUpperCase() === string[i]
+      ? (parteMayuscula += string[i])
+      : (parteMinuscula += string[i]);
 
+    //  if( string[i].toUpperCase() === string[i]){
+    //        parteMayuscula += string[i]
+    //  }else{
+    //     parteMinuscula += string[i]
+    //  }
+  }
   return parteMayuscula + parteMinuscula;
+  //   for (let a in s) {
+  //     if (esMayuscula(string[a])) {
+  //       parteMayuscula += string[a];
+  //     } else {
+  //       parteMinuscula += string[a];
+  //     }
+  //   }
+  //   function esMayuscula(letra) {
+  //     return letra === letra.toUpperCase();
+  //   }
+
+  //   return parteMayuscula + parteMinuscula;
 }
 
 function asAmirror(str) {
@@ -62,7 +77,6 @@ function asAmirror(str) {
   var strArray = str.split(" ");
   var strRevese = strArray.map((item) => item.split("").reverse().join(""));
   return strRevese.join(" ");
-
 }
 
 function capicua(numero) {

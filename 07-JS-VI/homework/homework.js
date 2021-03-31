@@ -47,9 +47,9 @@ function map(array, cb) {
   // El nuevo array debe tener la misma longitud que el array del argumento
   //Tu código:
   var nuevoArr = [];
-  for (var i = 0; i < array.length; i++) {
-    nuevoArr.push(cb(array[i]));
-  }
+  array.map((item) => {
+    nuevoArr.push(cb(item));
+  });
   return nuevoArr;
 }
 
@@ -57,13 +57,8 @@ function filter(array) {
   //Filtrar todos los elementos del array que comiencen con la letra "a".
   //Devolver un nuevo array con los elementos que cumplen la condición
   //Tu código:
-  var filterArr = [];
-  for (var i = 0; i < array.length; i++) {
-    if (array[i][0] === "a") {
-      filterArr.push(array[i]);
-    }
-  }
-  return filterArr;
+  return array.filter((item) => item[0] === "a");
+
 }
 
 // No modificar nada debajo de esta línea
